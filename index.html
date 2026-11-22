@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b111c">
+  <meta name="description" content="CUERVO TECHNOLOGY · Laboratorio de experiencias digitales para clientes.">
+  <title>CUERVO CLIENT LAB</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div id="directory">
+    <header class="top"><div class="brand"><span class="symbol">C</span><div><strong>CUERVO <em>TECHNOLOGY</em></strong><small>CLIENT EXPERIENCE LAB</small></div></div><span class="top-note">PREMIUM DIGITAL EXPERIENCE</span></header>
+    <main>
+      <section class="hero"><div class="line"></div><p class="eyebrow">ONE LAB · MULTIPLE WORLDS</p><h1>Experiencias que<br><span>crean oportunidades.</span></h1><p class="intro">Presentaciones, tarjetas y experiencias digitales diseñadas para cada cliente, reunidas en nuestro laboratorio.</p><div class="count" id="count">Preparando catálogo…</div></section>
+      <section class="collection"><div class="collection-head"><div><p class="eyebrow">CUSTOMER COLLECTION</p><h2>Proyectos publicados</h2></div><label><span class="sr-only">Buscar cliente</span><input id="search" placeholder="Buscar experiencia…" autocomplete="off"></label></div><div id="cards" class="grid" aria-live="polite"></div></section>
+    </main>
+    <footer><strong>CUERVO TECHNOLOGY</strong><span>We create technology. You create opportunities. Together, we create value.</span></footer>
+  </div>
+  <div id="clientView" hidden><header class="viewer-head"><div class="brand"><span class="symbol">C</span><div><strong>CUERVO <em>TECHNOLOGY</em></strong><small id="viewerName">Digital Experience</small></div></div><a id="backLink" href="./">Laboratorio</a></header><p id="viewerStatus" class="viewer-status">Preparando tu presentación…</p><iframe id="viewer" title="Presentación del cliente" sandbox="allow-scripts allow-forms allow-popups" referrerpolicy="no-referrer" hidden></iframe></div>
+</body>
+</html>

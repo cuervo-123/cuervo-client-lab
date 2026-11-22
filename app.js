@@ -1,0 +1,12 @@
+/* Static public catalog. Admin operations are available only in local MORPH served by the Mac agent. */
+(()=>{'use strict';
+  const $=id=>document.getElementById(id);
+  const clean=raw=>typeof raw==='string'?raw:'';
+  const validSlug=slug=>/^[a-z0-9](?:[a-z0-9-]{0,46}[a-z0-9])?$/.test(slug);
+  const pageFor=slug=>'./clientes/'+slug+'/';
+  async function catalog(){const response=await fetch('./clients.json',{cache:'no-store'});if(!response.ok)throw Error('Catálogo no disponible');const raw=await response.json();if(raw.schema!=='cuervo-sync-catalog-v1'||!Array.isArray(raw.clients))throw Error('Formato de catálogo no reconocido');return raw.clients.filter(c=>c&&validSlug(c.slug)&&c.published===true);}
+  function card(c){const a=document.createElement('a');a.className='item';a.href=pageFor(c.slug);const monogram=document.createElement('div');monogram.className='monogram';monogram.textContent=clean(c.name).charAt(0).toUpperCase()||'C';const h=document.createElement('h3');h.textContent=clean(c.name);const p=document.createElement('p');p.textContent='CUERVO DIGITAL EXPERIENCE';const span=document.createElement('span');span.className='view-action';span.textContent='ABRIR PRESENTACIÓN';a.append(monogram,h,p,span);return a;}
+  async function init(){const slug=new URLSearchParams(location.search).get('client');if(slug!==null){$('directory').hidden=true;$('clientView').hidden=false;try{const cs=await catalog(),client=cs.find(c=>c.slug===slug);if(!client)throw Error('Esta presentación no está publicada.');$('viewerName').textContent=client.name;document.title=client.name+' · CUERVO TECHNOLOGY';$('viewer').src=pageFor(slug);$('viewer').hidden=false;$('viewerStatus').hidden=true;}catch(e){$('viewerStatus').textContent=e.message;}return;}
+    try{const cs=await catalog();$('count').textContent=cs.length+' EXPERIENCIA'+(cs.length===1?'':'S')+' PUBLICADA'+(cs.length===1?'':'S');const draw=()=>{const q=$('search').value.trim().toLowerCase(),matching=cs.filter(c=>c.name.toLowerCase().includes(q)||c.slug.includes(q)),parent=$('cards');parent.replaceChildren();if(!matching.length){const empty=document.createElement('div');empty.className='empty';empty.textContent=cs.length?'No encontramos ese cliente.':'El laboratorio está listo. Los primeros proyectos aparecerán aquí después de publicarlos desde MORPH.';parent.append(empty);}else matching.forEach(c=>parent.append(card(c)));};$('search').oninput=draw;draw();}catch(e){$('count').textContent='Catálogo pendiente';$('cards').textContent=e.message;}}
+  init();
+})();
