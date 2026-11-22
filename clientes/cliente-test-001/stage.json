@@ -2,7 +2,7 @@
   "format": "tech-blue-one-button-stage-v1",
   "id": "published-cliente-test-001",
   "name": "CLIENTE TEST 001",
-  "updated": "2026-11-22T20:37:23Z",
+  "updated": "2026-11-22T20:46:06Z",
   "buttons": [
     {
       "id": "customer-cliente-test-001",
@@ -79,15 +79,15 @@
           }
         ],
         "scrollTheme": {
-          "background": "#091a16",
-          "surface": "#123028",
-          "ink": "#f2f7f0",
-          "muted": "#bdd3cb",
-          "accent": "#62b99f",
-          "accent2": "#b0efcf",
-          "preset": "emerald",
-          "font": "serif",
-          "radius": 28
+          "background": "#f3f0e9",
+          "surface": "#fffdf8",
+          "ink": "#242a31",
+          "muted": "#525c64",
+          "accent": "#a67445",
+          "accent2": "#85542d",
+          "preset": "pearl",
+          "font": "editorial",
+          "radius": 24
         },
         "smartContact": {
           "phone": "",
