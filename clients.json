@@ -1,13 +1,13 @@
 {
   "schema": "cuervo-sync-catalog-v1",
-  "updatedAt": "2026-11-26T06:42:16Z",
+  "updatedAt": "2026-11-27T22:33:38Z",
   "clients": [
     {
       "slug": "cliente-test-001",
       "name": "CLIENTE TEST 001",
       "published": true,
       "path": "clientes/cliente-test-001/",
-      "updatedAt": "2026-11-26T06:42:16Z"
+      "updatedAt": "2026-11-27T22:33:38Z"
     }
   ]
 }
